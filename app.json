@@ -6,8 +6,8 @@
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "alquran",
-    "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "userInterfaceStyle": "light",
+    "newArchEnabled": false,
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.quran.alquran"
@@ -17,8 +17,6 @@
         "backgroundColor": "#FAFAF8",
         "foregroundImage": "./assets/images/icon.png"
       },
-      "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false,
       "package": "com.quran.alquran"
     },
     "web": {
@@ -32,16 +30,14 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#FAFAF8",
-          "dark": {
-            "backgroundColor": "#1A1D1C"
-          }
+          "backgroundColor": "#FAFAF8"
         }
-      ],
-      "expo-web-browser"
+      ]
     ],
-    "experiments": {
-      "reactCompiler": true
+    "extra": {
+      "eas": {
+        "projectId": "al-quran-app"
+      }
     }
   }
 }

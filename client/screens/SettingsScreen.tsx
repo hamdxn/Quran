@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Pressable, Switch, Image } from "react-native";
+import { View, StyleSheet, Pressable, Switch, Image, ScrollView } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useHeaderHeight } from "@react-navigation/elements";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 import Slider from "@react-native-community/slider";
 import * as Haptics from "expo-haptics";
 
-import { KeyboardAwareScrollViewCompat } from "@/components/KeyboardAwareScrollViewCompat";
 import { ThemedText } from "@/components/ThemedText";
 import { useTheme } from "@/hooks/useTheme";
 import { Spacing, BorderRadius, QuranColors } from "@/constants/theme";
@@ -48,7 +47,7 @@ export default function SettingsScreen() {
   };
 
   return (
-    <KeyboardAwareScrollViewCompat
+    <ScrollView
       style={[styles.container, { backgroundColor: theme.backgroundRoot }]}
       contentContainerStyle={{
         paddingTop: headerHeight + Spacing.xl,
@@ -186,7 +185,7 @@ export default function SettingsScreen() {
           </ThemedText>
         </Pressable>
       </View>
-    </KeyboardAwareScrollViewCompat>
+    </ScrollView>
   );
 }
 
