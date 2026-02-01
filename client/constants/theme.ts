@@ -1,30 +1,55 @@
 import { Platform } from "react-native";
 
-const tintColorLight = "#007AFF";
-const tintColorDark = "#0A84FF";
+export const QuranColors = {
+  primary: "#2C5F4F",
+  accent: "#D4AF37",
+  background: "#FAFAF8",
+  surface: "#FFFFFF",
+  textPrimary: "#1A1A1A",
+  textSecondary: "#6B7280",
+  border: "#E5E7EB",
+  success: "#059669",
+  makkah: "#8B4513",
+  madinah: "#2C5F4F",
+};
+
+const tintColorLight = QuranColors.primary;
+const tintColorDark = "#4A9B7F";
 
 export const Colors = {
   light: {
-    text: "#11181C",
+    text: QuranColors.textPrimary,
+    textSecondary: QuranColors.textSecondary,
     buttonText: "#FFFFFF",
-    tabIconDefault: "#687076",
+    tabIconDefault: QuranColors.textSecondary,
     tabIconSelected: tintColorLight,
-    link: "#007AFF",
-    backgroundRoot: "#FFFFFF", // Elevation 0
-    backgroundDefault: "#F2F2F2", // Elevation 1
-    backgroundSecondary: "#E6E6E6", // Elevation 2
-    backgroundTertiary: "#D9D9D9", // Elevation 3
+    link: QuranColors.primary,
+    accent: QuranColors.accent,
+    backgroundRoot: QuranColors.background,
+    backgroundDefault: QuranColors.surface,
+    backgroundSecondary: "#F5F5F3",
+    backgroundTertiary: "#EBEBEB",
+    border: QuranColors.border,
+    success: QuranColors.success,
+    makkah: QuranColors.makkah,
+    madinah: QuranColors.madinah,
   },
   dark: {
     text: "#ECEDEE",
+    textSecondary: "#9BA1A6",
     buttonText: "#FFFFFF",
     tabIconDefault: "#9BA1A6",
     tabIconSelected: tintColorDark,
-    link: "#0A84FF",
-    backgroundRoot: "#1F2123", // Elevation 0
-    backgroundDefault: "#2A2C2E", // Elevation 1
-    backgroundSecondary: "#353739", // Elevation 2
-    backgroundTertiary: "#404244", // Elevation 3
+    link: tintColorDark,
+    accent: "#E5C158",
+    backgroundRoot: "#1A1D1C",
+    backgroundDefault: "#252928",
+    backgroundSecondary: "#303534",
+    backgroundTertiary: "#3B403F",
+    border: "#404544",
+    success: "#10B981",
+    makkah: "#CD853F",
+    madinah: "#4A9B7F",
   },
 };
 
@@ -40,6 +65,7 @@ export const Spacing = {
   "5xl": 48,
   inputHeight: 48,
   buttonHeight: 52,
+  audioPlayerHeight: 80,
 };
 
 export const BorderRadius = {
@@ -89,17 +115,28 @@ export const Typography = {
     lineHeight: 24,
     fontWeight: "400" as const,
   },
+  arabic: {
+    fontSize: 24,
+    lineHeight: 42,
+    fontWeight: "400" as const,
+  },
+  arabicLarge: {
+    fontSize: 28,
+    lineHeight: 48,
+    fontWeight: "400" as const,
+  },
+  caption: {
+    fontSize: 12,
+    lineHeight: 16,
+    fontWeight: "400" as const,
+  },
 };
 
 export const Fonts = Platform.select({
   ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
     sans: "system-ui",
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
     serif: "ui-serif",
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
     rounded: "ui-rounded",
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
     mono: "ui-monospace",
   },
   default: {
@@ -116,3 +153,27 @@ export const Fonts = Platform.select({
     mono: "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
   },
 });
+
+export const Shadows = {
+  sm: {
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05,
+    shadowRadius: 2,
+    elevation: 1,
+  },
+  md: {
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  lg: {
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+};
