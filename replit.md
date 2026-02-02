@@ -33,6 +33,7 @@ Preferred communication style: Simple, everyday language.
 
 **Data Layer**:
 - Static Quran data bundled in JSON format (`client/data/quranVerses.json`)
+- English translations bundled offline (`client/data/englishTranslations.json`) - sourced from semarketir/quranjson
 - Surah metadata in TypeScript (`client/data/surahs.ts`)
 - Audio streamed from CDN (cdn.islamic.network)
 

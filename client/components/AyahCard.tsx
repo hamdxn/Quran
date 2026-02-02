@@ -14,6 +14,7 @@ interface AyahCardProps {
   surahTitleAr: string;
   ayahNumber: number;
   arabicText: string;
+  englishTranslation?: string;
   isPlaying?: boolean;
   onLongPress?: () => void;
 }
@@ -24,6 +25,7 @@ export function AyahCard({
   surahTitleAr,
   ayahNumber,
   arabicText,
+  englishTranslation,
   isPlaying = false,
   onLongPress,
 }: AyahCardProps) {
@@ -113,6 +115,16 @@ export function AyahCard({
       >
         {arabicText}
       </ThemedText>
+      {englishTranslation && (
+        <ThemedText
+          style={[
+            styles.translationText,
+            { color: theme.textSecondary },
+          ]}
+        >
+          {englishTranslation}
+        </ThemedText>
+      )}
     </Pressable>
   );
 }
@@ -149,5 +161,11 @@ const styles = StyleSheet.create({
     lineHeight: 52,
     textAlign: "right",
     fontFamily: "Amiri_400Regular",
+  },
+  translationText: {
+    fontSize: 16,
+    lineHeight: 26,
+    textAlign: "left",
+    marginTop: Spacing.md,
   },
 });

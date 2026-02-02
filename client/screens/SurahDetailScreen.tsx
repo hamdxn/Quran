@@ -15,7 +15,7 @@ import { ThemedText } from "@/components/ThemedText";
 import { useTheme } from "@/hooks/useTheme";
 import { Spacing, BorderRadius, QuranColors } from "@/constants/theme";
 import { RootStackParamList } from "@/navigation/RootStackNavigator";
-import { getSurahDetail, getAudioUrl, saveLastRead } from "@/lib/quranStorage";
+import { getSurahDetail, getAudioUrl, saveLastRead, getSurahTranslation } from "@/lib/quranStorage";
 import { SurahDetail, getSurahNumber } from "@/data/surahs";
 
 type RouteType = RouteProp<RootStackParamList, "SurahDetail">;
@@ -23,6 +23,7 @@ type RouteType = RouteProp<RootStackParamList, "SurahDetail">;
 interface AyahItem {
   number: number;
   text: string;
+  translation: string;
 }
 
 export default function SurahDetailScreen() {
@@ -39,6 +40,7 @@ export default function SurahDetailScreen() {
   const showBismillah = surahNumber !== 9 && surahNumber !== 1;
 
   const surahDetail = useMemo(() => getSurahDetail(surah.index), [surah.index]);
+  const translations = useMemo(() => getSurahTranslation(surah.index), [surah.index]);
 
   useEffect(() => {
     if (surahDetail) {
@@ -51,8 +53,9 @@ export default function SurahDetailScreen() {
     return Object.entries(surahDetail.verse).map(([key, text]) => ({
       number: parseInt(key.replace("verse_", ""), 10),
       text: text as string,
+      translation: translations?.[key] || "",
     }));
-  }, [surahDetail]);
+  }, [surahDetail, translations]);
 
   const handlePlayStateChange = useCallback((playing: boolean) => {
     setIsPlaying(playing);
@@ -66,6 +69,7 @@ export default function SurahDetailScreen() {
         surahTitleAr={surah.titleAr}
         ayahNumber={item.number}
         arabicText={item.text}
+        englishTranslation={item.translation}
         isPlaying={false}
       />
     ),

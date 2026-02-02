@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { SurahDetail } from "@/data/surahs";
 import quranVerses from "@/data/quranVerses.json";
+import englishTranslations from "@/data/englishTranslations.json";
 
 const BOOKMARKS_KEY = "quran_bookmarks";
 const SETTINGS_KEY = "quran_settings";
@@ -41,6 +42,17 @@ const defaultSettings: Settings = {
 export function getSurahDetail(surahIndex: string): SurahDetail | null {
   const data = (quranVerses as Record<string, SurahDetail>)[surahIndex];
   return data || null;
+}
+
+export function getSurahTranslation(surahIndex: string): Record<string, string> | null {
+  const data = (englishTranslations as Record<string, Record<string, string>>)[surahIndex];
+  return data || null;
+}
+
+export function getAyahTranslation(surahIndex: string, ayahNumber: number): string | null {
+  const translations = getSurahTranslation(surahIndex);
+  if (!translations) return null;
+  return translations[`verse_${ayahNumber}`] || null;
 }
 
 export function getAudioUrl(surahNumber: number): string {

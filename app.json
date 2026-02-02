@@ -7,10 +7,13 @@
     "icon": "./assets/images/icon.png",
     "scheme": "alquran",
     "userInterfaceStyle": "light",
-    "newArchEnabled": false,
+    "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.quran.alquran"
+      "bundleIdentifier": "com.quran.alquran",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -36,7 +39,7 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "al-quran-app"
+        "projectId": "5357eb25-e982-487f-8f15-b428e203a53d"
       }
     }
   }
